@@ -1,12 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
-  <display-name>Researcher</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>GadgetBadget</display-name>
+ 
+	
+	   <servlet>
+      	<servlet-name>addResearcher</servlet-name>
+	    <servlet-class>com.gadgetBadget.servlet.addResearcher</servlet-class>
+	  </servlet>
+	   <servlet-mapping>
+	    <servlet-name>addResearcher</servlet-name>
+	    <url-pattern>/addResearcher</url-pattern>
+	  </servlet-mapping>
+	  
+	 <servlet>
+      	<servlet-name>deleteReasearcher</servlet-name>
+	    <servlet-class>com.gadgetBadget.servlet.deleteReasearcher</servlet-class>
+	  </servlet>
+	   <servlet-mapping>
+	    <servlet-name>deleteReasearcher</servlet-name>
+	    <url-pattern>/deleteReasearcher</url-pattern>
+	  </servlet-mapping>
+	  
+	  <servlet>
+      	<servlet-name>updateResearcher</servlet-name>
+	    <servlet-class>com.gadgetBadget.servlet.updateResearcher</servlet-class>
+	  </servlet>
+	   <servlet-mapping>
+	    <servlet-name>updateResearcher</servlet-name>
+	    <url-pattern>/updateResearcher</url-pattern>
+	  </servlet-mapping>
+	   
+	    
+	  <welcome-file-list>
+	    <welcome-file>index.html</welcome-file>  
+	    <welcome-file>index.htm</welcome-file>
+	    <welcome-file>index.jsp</welcome-file>
+	    <welcome-file>index.html</welcome-file>
+	    <welcome-file>index.htm</welcome-file>
+	    <welcome-file>index.jsp</welcome-file>
+	  </welcome-file-list>
+
 </web-app>
