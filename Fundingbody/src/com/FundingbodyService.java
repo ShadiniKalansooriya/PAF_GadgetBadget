@@ -74,12 +74,11 @@ public class FundingbodyService {
 	//Convert the input string to an XML document
 	 Document doc = Jsoup.parse(sponcerData, "", Parser.xmlParser());
 
-	//Read the value from the element <itemID>
+	//Read the value from the element <sponcerId>
 	 String sponcerId = doc.select("sponcerId").text();
 	 String output = fundingbodyObj.deleteSponcer(sponcerId);
 	return output;
 	}
-	
 	
 	
 	@GET
