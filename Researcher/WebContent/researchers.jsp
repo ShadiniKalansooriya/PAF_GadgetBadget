@@ -25,12 +25,12 @@ table, th, td {
 <table style="width:100%">
   <tr>
     <th>#</th>
-    <th>Id</th>
-    <th>name</th> 
+    <th>Researcher Id</th>
+    <th>Researcher name</th> 
     <th>Project Type</th>
-    <th>Payment</th>
+    <th>Amount Payable</th>
     <th>Contact number</th>
-    <th colspan="2">option</th>
+    <th colspan="2">Option</th>
   </tr>
   <%
   	IResearcher service = new ImpReasercher();

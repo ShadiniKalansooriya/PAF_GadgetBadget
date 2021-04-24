@@ -46,7 +46,7 @@ public class updateResearcher extends HttpServlet {
 		
 		 
 		int tp = Integer.parseInt(request.getParameter("tel"));
-		int id = Integer.parseInt(request.getParameter("id"));
+		int id = Integer.parseInt(request.getParameter("rId"));
 		float payment = Float.parseFloat(request.getParameter("payment"));
 		 
 		 

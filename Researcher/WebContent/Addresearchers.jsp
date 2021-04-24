@@ -22,24 +22,26 @@
 <div style="margin: 10px;">
 <a href="researchers.jsp" > <button style="cursor: pointer;padding: 3px;"> &notin;- back</button></a>
 
-	<h3>Update Researcher</h3>
+	<h2>Update Researcher</h2>
 </div>
 <div >
 <form action="updateResearcher" method="post"  style=padding: 15px;border:1px;">
 	<div  style="margin-bottom: 15px;">
-	<label for="name">Name</label>
+	<label for="name">Researcher Name</label>
 	<input type="text" placeholder="Researcher Name" value="<%=researcher.getName() %>" name="name" id="name" required="required"> 
 	</div>
 	<div  style="margin-bottom: 15px;">
 	<label for="project">Choose a Project Type:</label>
 		<select name="project" id="project">
-		  <option <%if (researcher.getName().equals("project1")){ %> selected="selected"<%} %> value="project1">project1</option>
-		  <option <%if (researcher.getName().equals("project2")){ %> selected="selected"<%} %> value="project2">project2</option> 
-		</select>
+		  <option <%if (researcher.getName().equals("project 24")){ %> selected="selected"<%} %> value="project 24">project 24</option>
+		  <option <%if (researcher.getName().equals("HRM_project")){ %> selected="selected"<%} %> value="HRM_project">HRM_project</option> 
+		  <option <%if (researcher.getName().equals("ERP")){ %> selected="selected"<%} %> value="ERP">ERP</option>
+		  <option <%if (researcher.getName().equals("POS")){ %> selected="selected"<%} %> value="POS">POS</option> 
+		 </select>
 		</div>
-		<input type="hidden" name="id" value="<%=researcher.getId() %>">
+		<input type="hidden" name="rId" value="<%=id%>">
 		<div  style="margin-bottom: 15px;">
-		<label for="payment">Payment</label>
+		<label for="payment">Amount Payable</label>
 		<input type="number" placeholder="enter payment" value="<%=researcher.getPayment() %>" name="payment" id="payment" required="required">
 		</div>
 		<div  style="margin-bottom: 15px;">
@@ -57,23 +59,25 @@
 <div style="margin: 10px;">
 <a href="researchers.jsp" > <button style="cursor: pointer;padding: 3px;"> &notin;- back</button></a>
 
-	<h3>Add Researcher</h3>
+	<h2><b>Add Researcher</b></h2>
 </div>
 <div >
 <form action="addResearcher" method="post"  style=padding: 15px;border:1px;">
 	<div  style="margin-bottom: 15px;">
-	<label for="name">Name</label>
+	<label for="name">Researcher Name</label>
 	<input type="text" placeholder="Researcher Name" name="name" id="name" required="required"> 
 	</div>
 	<div  style="margin-bottom: 15px;">
 	<label for="project">Choose a Project Type:</label>
 		<select name="project" id="project">
-		  <option value="project1">project1</option>
-		  <option value="project2">project2</option> 
+		  <option value="project 24">project_24</option>
+		 _ <option value="HRM_project">HRM_project</option> 
+		  <option value="ERP">ERP </option>
+		  <option value="POS">POS </option>
 		</select>
 		</div>
 		<div  style="margin-bottom: 15px;">
-		<label for="payment">Payment</label>
+		<label for="payment">Amount Payable</label>
 		<input type="number" placeholder="enter payment" name="payment" id="payment" required="required">
 		</div>
 		<div  style="margin-bottom: 15px;">
