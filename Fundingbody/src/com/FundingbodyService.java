@@ -1,5 +1,6 @@
 package com;
 
+
 import model.Fundingbody;
 //For REST Service
 //import javax.annotation.security.RolesAllowed;
@@ -16,6 +17,7 @@ import org.jsoup.nodes.Document;
 @Path("/Fundingbodies")
 public class FundingbodyService {
 	Fundingbody fundingbodyObj = new Fundingbody();
+	Fundingbody fundObj = new Fundingbody();
 	
 	@GET
 	@Path("/")
@@ -79,6 +81,65 @@ public class FundingbodyService {
 	}
 	
 	
+	
+	@GET
+	@Path("/fund")
+	@Produces(MediaType.TEXT_HTML)
+	public String readFunds()
+	 {
+		return fundObj.readFunds();
+	 } 
+	
+
+	@POST
+	@Path("/fund")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Produces(MediaType.TEXT_PLAIN)
+	public String insertFund(@FormParam("researchPaper") String researchPaper,
+							 @FormParam("sponcerNic") String sponcerNic,
+							 @FormParam("fundAmount") String fundAmount,
+							 @FormParam("description") String description)
+							
+	{
+	 String output = fundObj.insertFund(researchPaper, sponcerNic, fundAmount,description);
+	 return output;
+	}
+	
+	@PUT
+	@Path("/fund")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.TEXT_PLAIN)
+	public String updateFund(String fundData)
+	{
+	//Convert the input string to a JSON object
+	 JsonObject fundObject = new JsonParser().parse(fundData).getAsJsonObject();
+	//Read the values from the JSON object
+	 String fundId = fundObject.get("fundId").getAsString();
+	 String researchPaper = fundObject.get("researchPaper").getAsString();
+	 String sponcerNic = fundObject.get("sponcerNic").getAsString();
+	 String fundAmount = fundObject.get("fundAmount").getAsString();
+	 String description = fundObject.get("description").getAsString();
+	
+	 String output = fundObj.updateFund(fundId, researchPaper, sponcerNic, fundAmount, description);
+	 return output;
+	}
+	
+	
+	
+	@DELETE
+	@Path("/fund")
+	@Consumes(MediaType.APPLICATION_XML)
+	@Produces(MediaType.TEXT_PLAIN)
+	public String deleteFund(String fundData)
+	{
+	//Convert the input string to an XML document
+	 Document doc = Jsoup.parse(fundData, "", Parser.xmlParser());
+
+	//Read the value from the element <sponcerId>
+	 String fundId = doc.select("fundId").text();
+	 String output = fundObj.deleteFund(fundId);
+	return output;
+	}
 	
 }
 
