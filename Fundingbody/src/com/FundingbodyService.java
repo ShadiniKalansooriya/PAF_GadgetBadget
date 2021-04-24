@@ -18,6 +18,7 @@ import org.jsoup.nodes.Document;
 public class FundingbodyService {
 	Fundingbody fundingbodyObj = new Fundingbody();
 	
+	//___________________________________________Sponcers Management__________________________________________________________
 	
 	@GET
 	@Path("/fundingbodies")
@@ -80,6 +81,7 @@ public class FundingbodyService {
 	return output;
 	}
 	
+	//___________________________________________Funds Management__________________________________________________________
 	
 	@GET
 	@Path("/funds")
@@ -118,7 +120,6 @@ public class FundingbodyService {
 	 String sponcerNic = fundObject.get("sponcerNic").getAsString();
 	 String fundAmount = fundObject.get("fundAmount").getAsString();
 	 String description = fundObject.get("description").getAsString();
-	
 	 String output = fundingbodyObj.updateFund(fundId, researchPaper, sponcerNic, fundAmount, description);
 	 return output;
 	}

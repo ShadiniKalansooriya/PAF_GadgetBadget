@@ -16,6 +16,9 @@ public class Fundingbody
 		{e.printStackTrace();}
 		return con;
 	}
+	
+	//___________________________________________Sponcers Management__________________________________________________________
+	
 	public String insertSponcer(String nic, String fname, String lname, String email,String phoneno)
 	{
 		String output = "";
@@ -159,7 +162,7 @@ public class Fundingbody
 		return output;
 	}
 	
-	
+	//___________________________________________Funds Management__________________________________________________________
 	
 	public String insertFund(String researchpaper, String sponcernic, String fundamount, String description)
 	{
@@ -249,7 +252,7 @@ public class Fundingbody
 			if (con == null)
 			{return "Error while connecting to the database for updating."; }
 			// create a prepared statement
-			String query = "UPDATE funds SET researchPaper=?,sponcerNic=?,fundAmount=?,sponcerEmail=?,description=?WHERE fundId=?";
+			String query = "UPDATE funds SET researchPaper=?,sponcerNic=?,fundAmount=?,description=?WHERE fundId=?";
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 			// binding values
 			preparedStmt.setInt(1, Integer.parseInt(id));
