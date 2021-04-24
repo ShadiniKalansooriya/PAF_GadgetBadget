@@ -1,6 +1,8 @@
 package com;
 
 import model.Customer;
+import model.ProjCustomer;
+
 //For REST Service
 import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.core.MediaType;
@@ -17,6 +19,7 @@ import org.jsoup.nodes.Document;
 public class CustomerService {
 	Customer customerObj = new Customer();
 	Customer FeedbackObj = new 	Customer();
+	ProjCustomer ProjectObj = new 	ProjCustomer();
 	@GET
 	@Path("/")
 	@Produces(MediaType.TEXT_HTML)
@@ -131,6 +134,15 @@ public class CustomerService {
 	 String output = FeedbackObj.deleteFeedback(FeedbackID);
 	return output;
 	}
+	
+	@GET
+	@Path("/proj")
+	@Produces(MediaType.TEXT_HTML)
+	public String readProjects()
+	 {
+		return ProjectObj.readProjects();
+	 } 
+	
 	
 }
 
