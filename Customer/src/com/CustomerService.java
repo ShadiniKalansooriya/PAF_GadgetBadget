@@ -1,6 +1,9 @@
 package com;
 
 import model.Customer;
+
+
+
 import model.ProjCustomer;
 
 //For REST Service
@@ -19,7 +22,10 @@ import org.jsoup.nodes.Document;
 public class CustomerService {
 	Customer customerObj = new Customer();
 	Customer FeedbackObj = new 	Customer();
+
+
 	ProjCustomer ProjectObj = new 	ProjCustomer();
+
 	@GET
 	@Path("/")
 	@Produces(MediaType.TEXT_HTML)
