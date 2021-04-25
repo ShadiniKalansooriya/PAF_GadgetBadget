@@ -17,10 +17,11 @@ import org.jsoup.nodes.Document;
 @Path("/Fundingbodies")
 public class FundingbodyService {
 	Fundingbody fundingbodyObj = new Fundingbody();
-	Fundingbody fundObj = new Fundingbody();
+	
+	//___________________________________________Sponcers Management__________________________________________________________
 	
 	@GET
-	@Path("/")
+	@Path("/fundingbodies")
 	@Produces(MediaType.TEXT_HTML)
 	public String readSponcers()
 	 {
@@ -29,7 +30,7 @@ public class FundingbodyService {
 	
 
 	@POST
-	@Path("/")
+	@Path("/fundingbodies")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.TEXT_PLAIN)
 	public String insertSponcer(@FormParam("sponcerNIC") String sponcerNIC,
@@ -44,7 +45,7 @@ public class FundingbodyService {
 	}
 	
 	@PUT
-	@Path("/")
+	@Path("/fundingbodies")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.TEXT_PLAIN)
 	public String updateSponcer(String sponcerData)
@@ -66,7 +67,7 @@ public class FundingbodyService {
 	
 	
 	@DELETE
-	@Path("/")
+	@Path("/fundingbodies")
 	@Consumes(MediaType.APPLICATION_XML)
 	@Produces(MediaType.TEXT_PLAIN)
 	public String deleteSponcer(String sponcerData)
@@ -80,18 +81,19 @@ public class FundingbodyService {
 	return output;
 	}
 	
+	//___________________________________________Funds Management__________________________________________________________
 	
 	@GET
-	@Path("/fund")
+	@Path("/funds")
 	@Produces(MediaType.TEXT_HTML)
 	public String readFunds()
 	 {
-		return fundObj.readFunds();
+		return fundingbodyObj.readFunds();
 	 } 
 	
 
 	@POST
-	@Path("/fund")
+	@Path("/funds")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.TEXT_PLAIN)
 	public String insertFund(@FormParam("researchPaper") String researchPaper,
@@ -100,12 +102,12 @@ public class FundingbodyService {
 							 @FormParam("description") String description)
 							
 	{
-	 String output = fundObj.insertFund(researchPaper, sponcerNic, fundAmount,description);
+	 String output = fundingbodyObj.insertFund(researchPaper, sponcerNic, fundAmount,description);
 	 return output;
 	}
 	
 	@PUT
-	@Path("/fund")
+	@Path("/funds")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.TEXT_PLAIN)
 	public String updateFund(String fundData)
@@ -118,15 +120,14 @@ public class FundingbodyService {
 	 String sponcerNic = fundObject.get("sponcerNic").getAsString();
 	 String fundAmount = fundObject.get("fundAmount").getAsString();
 	 String description = fundObject.get("description").getAsString();
-	
-	 String output = fundObj.updateFund(fundId, researchPaper, sponcerNic, fundAmount, description);
+	 String output = fundingbodyObj.updateFund(fundId, researchPaper, sponcerNic, fundAmount, description);
 	 return output;
 	}
 	
 	
 	
 	@DELETE
-	@Path("/fund")
+	@Path("/funds")
 	@Consumes(MediaType.APPLICATION_XML)
 	@Produces(MediaType.TEXT_PLAIN)
 	public String deleteFund(String fundData)
@@ -136,7 +137,7 @@ public class FundingbodyService {
 
 	//Read the value from the element <sponcerId>
 	 String fundId = doc.select("fundId").text();
-	 String output = fundObj.deleteFund(fundId);
+	 String output = fundingbodyObj.deleteFund(fundId);
 	return output;
 	}
 	

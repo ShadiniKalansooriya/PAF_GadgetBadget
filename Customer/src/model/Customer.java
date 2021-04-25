@@ -11,6 +11,7 @@ public class Customer
 
 			//Provide the correct details: DBServer/DBName, username, password
 			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/paf_customer","root", "");
+			
 		}
 		catch (Exception e)
 		{e.printStackTrace();}
@@ -291,4 +292,73 @@ public class Customer
 		}
 		return output;
 	}
+	
+	
+	public String readProjects()
+	{
+		String output = "";
+		try
+		{
+			Connection con = connect();
+			if (con == null)
+			{return "Error while connecting to the database for reading."; }
+			// Prepare the html table to be displayed
+			output = "<table border='1'><tr><th>projectCode</th><th>projectName</th>" +
+					"<th>estimatedProjecPrice</th></tr>";
+
+			String query = "select projectCode,projectName,estimatedProjecPrice from projects";
+			
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(query);
+			
+			// iterate through the rows in the result set
+			while (rs.next())
+			{
+				
+				String projectCode = rs.getString("projectCode");
+				String projectName = rs.getString("projectName");
+				String estimatedProjecPrice = rs.getString("estimatedProjecPrice");
+				
+				
+								
+				// Add into the html table
+				output += "<tr><td>" + projectCode + "</td>";
+				output += "<td>" + projectName + "</td>";
+				output += "<td>" + estimatedProjecPrice + "</td>";
+				
+				
+			}
+			con.close();
+			// Complete the html table
+			output += "</table>";
+		}
+		catch (Exception e)
+		{
+			output = "Error while reading the customers.";
+			System.err.println(e.getMessage());
+		}
+		return output;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 } 
