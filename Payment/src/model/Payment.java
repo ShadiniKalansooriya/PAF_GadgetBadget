@@ -40,9 +40,9 @@ public class Payment
 			preparedStmt.setInt(1, 0);
 			preparedStmt.setString(2, code);
 			preparedStmt.setString(3, cID);
-			preparedStmt.setString(3, name);
-			preparedStmt.setDouble(4, Double.parseDouble(amount));
-			preparedStmt.setString(5, date);
+			preparedStmt.setString(4, name);
+			preparedStmt.setDouble(5, Double.parseDouble(amount));
+			preparedStmt.setString(6, date);
 			
 			// execute the statement
 			preparedStmt.execute();
@@ -140,11 +140,11 @@ public class Payment
 			
 			// binding values
 			preparedStmt.setString(1, code);
-			preparedStmt.setString(1, cID);
-			preparedStmt.setString(2, name);
-			preparedStmt.setDouble(3, Double.parseDouble(amount));
-			preparedStmt.setString(4, date);
-			preparedStmt.setInt(5, Integer.parseInt(pID));
+			preparedStmt.setString(2, cID);
+			preparedStmt.setString(3, name);
+			preparedStmt.setDouble(4, Double.parseDouble(amount));
+			preparedStmt.setString(5, date);
+			preparedStmt.setInt(6, Integer.parseInt(pID));
 			
 			// execute the statement
 			preparedStmt.execute();
