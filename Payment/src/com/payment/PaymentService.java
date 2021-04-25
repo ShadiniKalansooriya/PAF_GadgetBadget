@@ -20,21 +20,22 @@ public class PaymentService
 	@GET
 	@Path("/")
 	@Produces(MediaType.TEXT_HTML)
-	public String readItems()
+	public String readPayments()
 	{
-		return itemObj.readItems();
+		return itemObj.readPayments();
 	}
 	
 	@POST
 	@Path("/")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.TEXT_PLAIN)
-	public String insertItem(@FormParam("itemCode") String itemCode, 
-			@FormParam("itemName") String itemName, 
-			@FormParam("itemPrice") String itemPrice, 
-			@FormParam("itemDesc") String itemDesc)
+	public String insertPayment(@FormParam("paymentCode") String paymentCode, 
+			@FormParam("customerID") String customerID,
+			@FormParam("project") String project,
+			@FormParam("paymentAmount") String paymentAmount, 
+			@FormParam("paymentDate") String paymentDate)
 	{
-		String output = itemObj.insertItem(itemCode, itemName, itemPrice, itemDesc);
+		String output = itemObj.insertPayment(paymentCode, customerID, project, paymentAmount, paymentDate);
 		return output;
 	}
 	
@@ -43,19 +44,20 @@ public class PaymentService
 	@Path("/")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.TEXT_PLAIN)
-	public String updateItem(String itemData)
+	public String updatePayment(String itemData)
 	{
 		//Convert the input string to a JSON object
 		JsonObject itemObject = new JsonParser().parse(itemData).getAsJsonObject();
 		
 		//Read the values from the JSON object
-		String itemID = itemObject.get("itemID").getAsString();
-		String itemCode = itemObject.get("itemCode").getAsString();
-		String itemName = itemObject.get("itemName").getAsString();
-		String itemPrice = itemObject.get("itemPrice").getAsString();
-		String itemDesc = itemObject.get("itemDesc").getAsString();
+		String paymentID = itemObject.get("paymentID").getAsString();
+		String paymentCode = itemObject.get("paymentCode").getAsString();
+		String customerID = itemObject.get("customerID").getAsString();
+		String project = itemObject.get("project").getAsString();
+		String paymentAmount = itemObject.get("paymentAmount").getAsString();
+		String paymentDate = itemObject.get("paymentDate").getAsString();
 		
-		String output = itemObj.updateItem(itemID, itemCode, itemName, itemPrice, itemDesc);
+		String output = itemObj.updatePayment(paymentID, paymentCode, customerID, project, paymentAmount, paymentDate);
 		
 		return output;
 	}
@@ -64,14 +66,14 @@ public class PaymentService
 	@Path("/")
 	@Consumes(MediaType.APPLICATION_XML)
 	@Produces(MediaType.TEXT_PLAIN)
-	public String deleteItem(String itemData)
+	public String deletePayment(String itemData)
 	{
 		//Convert the input string to an XML document
 		Document doc = Jsoup.parse(itemData, "", Parser.xmlParser());
 		
 		//Read the value from the element <itemID>
-		String itemID = doc.select("itemID").text();
-		String output = itemObj.deleteItem(itemID);
+		String paymentID = doc.select("paymentID").text();
+		String output = itemObj.deletePayment(paymentID);
 		
 		return output;
 	}
