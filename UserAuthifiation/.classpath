@@ -22,5 +22,25 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/Researcher/WebContent/WEB-INF/lib/annotations-api.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.8.0_281/javafx-src.zip"/>
+	<classpathentry kind="lib" path="C:/Users/user/javax.servlet.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Apache Software Foundation/apache-tomcat-9.0.45/lib/catalina.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="https://tomcat.apache.org/tomcat-9.0-doc/api/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/user/javax.ws.rs-api-2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/gson-2.2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/.m2/repository/org/json/json/20170516/json-20170516.jar" sourcepath="C:/Users/user/.m2/repository/org/json/json/20170516/json-20170516-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="org.eclipse.jst.component.archivename" value="json-20170516.jar"/>
+			<attribute name="maven.groupId" value="org.json"/>
+			<attribute name="maven.artifactId" value="json"/>
+			<attribute name="maven.version" value="20170516"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

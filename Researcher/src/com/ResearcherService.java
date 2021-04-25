@@ -12,6 +12,8 @@ import com.google.gson.*;
 import org.jsoup.*;
 import org.jsoup.parser.*;
 import org.jsoup.nodes.Document;
+
+@Path("/Researcher")
 public class ResearcherService {
 	
 	Researchers researchObj = new Researchers();
